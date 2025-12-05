@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
 import { authServices } from "./auth.services"
 import config from "../../config"
-import jwt, { JwtPayload } from "jsonwebtoken"
+import jwt from "jsonwebtoken"
+import { MyJwtPayload } from '../../types/jwt';
 
 const createLogin = async (req: Request, res: Response) => {
 
@@ -25,7 +26,7 @@ const createLogin = async (req: Request, res: Response) => {
             })
         }
         const decoded = jwt.verify(token, config.jwtSecret);
-        req.user = decoded as JwtPayload;
+        req.user = decoded as MyJwtPayload;
 
 
 

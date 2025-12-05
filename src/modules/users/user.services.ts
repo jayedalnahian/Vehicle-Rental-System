@@ -36,8 +36,49 @@ const getAllUsers = async () => {
 
 
 
+const updateSingleUser = async (id: string, name?: string, email?: string, phone?: string, role?: string) => {
+    const fields = []
+    const values: any[] = []
+    let index = 1
 
+    if (name) {
+        fields.push(`name = $${index++}`);
+        values.push(name);
+    }
+
+    if (email) {
+        fields.push(`email = $${index++}`);
+        values.push(email.toLowerCase());
+    }
+
+    if (phone) {
+        fields.push(`phone = $${index++}`);
+        values.push(phone);
+    }
+
+    if (role) {
+        fields.push(`role = $${index++}`);
+        values.push(role);
+    }
+
+
+    if (fields.length === 0) {
+        return { rows: [] };
+    }
+
+    values.push(id)
+
+
+    const result = await pool.query(`UPDATE USERS SET ${fields.join(", ")} WHERE id = $${index} RETURNING id, name, email, phone, role`, values)
+    return result;
+}
+
+
+const deleteSingleUser = async (id: string) => {
+    const result = await pool.query(`DELETE FROM users WHERE id = $1`, [id])
+    return result;
+}
 
 export const userServices = {
-    createUser, getAllUsers
+    createUser, getAllUsers, updateSingleUser, deleteSingleUser
 };
