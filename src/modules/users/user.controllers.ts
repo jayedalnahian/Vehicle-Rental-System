@@ -62,7 +62,45 @@ const createUser = async (req: Request, res: Response) => {
 }
 
 
+const getAllUsers = async (req: Request, res: Response) => {
+    try {
+        const result = await userServices.getAllUsers()
+
+        if (!result) {
+            return res.status(400).json({
+                status: false,
+                message: "Interner server error!!"
+            })
+        }
+
+
+        if (result.rows.length === 0) {
+            return res.status(400).json({
+                success: true,
+                message: "No user found",
+                data: result.rows
+            })
+        }
+
+        res.status(201).json({
+            status: true,
+            message: "Users retrieved successfully",
+            data: result.rows
+        })
+
+
+    } catch (error : any) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            errors: error.message
+
+        });
+    }
+}
+
+
 
 export const userControllers = {
-    createUser,
+    createUser, getAllUsers
 };

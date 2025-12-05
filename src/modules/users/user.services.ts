@@ -8,7 +8,7 @@ const createUser = async (payload: {
     phone: string;
     role?: string;
 }) => {
-    
+
     const { name, email, password, phone, role = 'customer' } = payload;
 
 
@@ -28,10 +28,16 @@ const createUser = async (payload: {
 
 
 
+const getAllUsers = async () => {
+    const result = pool.query(`SELECT id, name, email, phone, role FROM users`)
+    return result;
+
+}
+
 
 
 
 
 export const userServices = {
-    createUser,
+    createUser, getAllUsers
 };
