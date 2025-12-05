@@ -13,4 +13,5 @@ router.get("/:vehicleId", vehiclesControllers.getSingleVehicle)
 
 router.put("/:vehicleId", auth("admin"), vehiclesControllers.updateSingleVehicle)
 
+router.delete("/:vehicleId", auth("admin"), vehiclesControllers.deleteSingleVehicle)
 export const vehiclesRouter = router;   

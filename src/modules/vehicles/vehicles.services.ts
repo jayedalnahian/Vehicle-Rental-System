@@ -28,4 +28,10 @@ const updateSingleVehicle = async (vehicleId: string, vehicle_name: string, type
     return result.rows[0];
 }
 
-export const vehiclesServices = { createVehicle, getAllVehicles, getSingleVehicle, updateSingleVehicle };
+
+const deleteSingleVehicle = async (vehicleId: string) => {
+    const result = await pool.query(`DELETE FROM vehicles WHERE id = $1 RETURNING *`, [vehicleId])
+    return result;
+}
+
+export const vehiclesServices = {deleteSingleVehicle, createVehicle, getAllVehicles, getSingleVehicle, updateSingleVehicle };
