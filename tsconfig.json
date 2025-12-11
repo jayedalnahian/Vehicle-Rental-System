@@ -2,15 +2,15 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "commonjs",
+    "target": "es2020",
     "strict": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "types": ["node"]
-  }
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

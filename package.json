@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "npx tsx watch ./src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js"
-  },
+  "dev": "npx tsx watch ./src/server.ts",
+  "build": "tsc && cp -r src/config dist/config 2>/dev/null || true && cp -r src/middlewares dist/middlewares 2>/dev/null || true && cp -r src/modules dist/modules 2>/dev/null || true && cp -r src/utils dist/utils 2>/dev/null || true && cp -r src/types dist/types 2>/dev/null || true",
+  "start": "node dist/server.js",
+  "vercel-build": "npm run build"
+},
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
@@ -15,12 +16,14 @@
     "jsonwebtoken": "^9.0.3",
     "node-cron": "^4.2.1",
     "pg": "^8.16.3",
-    "@types/bcryptjs": "^2.4.2",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
+    
+ 
     "@types/node": "^24.10.3",
-    "@types/pg": "^8.16.0"
+    "@types/express": "^5.0.6",
+    "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/pg": "^8.16.0",
+    "@types/bcryptjs": "^2.4.2"
   },
   "devDependencies": {
     "tsx": "^4.21.0",

@@ -11,7 +11,13 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-initDb()
+initDb().then(connected => {
+  if (connected) {
+    console.log('Database connected successfully');
+  } else {
+    console.log('Database connection failed, running in offline mode');
+  }
+});
 
 
 app.use('/api/v1/users', userRoutes);
@@ -26,7 +32,13 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!')
 })
 
-
+app.get('/health', (req: Request, res: Response) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'Server is running',
+    timestamp: new Date().toISOString()
+  });
+});
 
 
 export default app;
