@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "types": ["node"],
-    "skipLibCheck": true,
     "rootDir": "./src",
     "outDir": "./dist",
     "module": "nodenext",
     "target": "esnext",
-    
-    "isolatedModules": true,
     "strict": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force"
+    "moduleDetection": "force",
   }
 }
