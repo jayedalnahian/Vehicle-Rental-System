@@ -55,7 +55,7 @@ const deleteSingleVehicle = async (id: string) => {
         [id]
     );
 
-    return deleteResult.rows[0];
+    return deleteResult;
 }
 
 export const vehiclesServices = { deleteSingleVehicle, createVehicle, getAllVehicles, getSingleVehicle, updateSingleVehicle };
