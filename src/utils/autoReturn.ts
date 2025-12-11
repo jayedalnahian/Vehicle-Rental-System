@@ -1,3 +1,5 @@
+declare module 'node-cron';
+
 import cron from "node-cron";
 import { pool } from "../config/db";
 
@@ -20,7 +22,7 @@ cron.schedule("*/5 * * * *", async () => {
             return
         }
 
-        const vehicleIds = result.rows.map(row => row.vehicle_id);
+        const vehicleIds = result.rows.map((row: { vehicle_id: number }) => row.vehicle_id);
 
         await pool.query(`
             UPDATE vehicles
