@@ -56,7 +56,7 @@ const createBooking = async (req: Request, res: Response) => {
         if (Object.keys(result).length === 0) {
             return res.status(400).json({
                 success: false,
-                message: "Booking creation failed. Vehicle not available or does not exist!"
+                message: "Booking creation failed. "
             })
         }
 
@@ -125,7 +125,7 @@ const updateBooking = async (req: Request, res: Response) => {
     } catch (error: any) {
         res.status(500).json({
             success: false,
-            message: "Failed to retrieve bookings. Server error!",
+            message: "Failed to update bookings. Server error!",
             error: error.message
         })
     }

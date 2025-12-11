@@ -8,7 +8,7 @@ A robust **Node.js + TypeScript backend API** designed to manage vehicle rentals
 
 ## 🔗 Live Links
 
-- **🚀 Live Deployment:** [https://vehicle-rental-system-ebon.vercel.app/](https://vehicle-rental-system-ebon.vercel.app/)
+- **🚀 Live Deployment:** [https://vehicle-rental-system-pearl-five.vercel.app/](https://vehicle-rental-system-pearl-five.vercel.app/)
 - **📂 GitHub Repository:** [https://github.com/jayedalnahian/Vehicle-Rental-System](https://github.com/jayedalnahian/Vehicle-Rental-System)
 
 ---
