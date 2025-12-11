@@ -1,3 +1,5 @@
+// user.routes.ts
+
 import { Router } from "express";
 import { userControllers } from "./user.controllers";
 import auth from "../../middlewares/auth/auth";

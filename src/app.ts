@@ -1,3 +1,5 @@
+//app.ts
+
 import express, { Request, Response } from 'express';
 import { initDb } from './config/db';
 import { userRoutes, } from './modules/users/user.routes';

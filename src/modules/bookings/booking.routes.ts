@@ -1,4 +1,4 @@
-// modules/bookings/booking.routes.ts
+// booking.routes.ts
 import { Router } from 'express';
 import { bookingControllers } from './booking.controllers';
 import auth from '../../middlewares/auth/auth';

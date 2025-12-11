@@ -1,3 +1,5 @@
+//auth.routes.ts
+
 import { Router } from "express";
 import { authControllers } from "./auth.controllers";
 
